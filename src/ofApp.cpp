@@ -47,7 +47,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofBackgroundGradient(ofColor(60,60,60), ofColor(10,10,10));
+    ofBackgroundGradient(ofColor(0,100,100), ofColor(0,0,100));
 
 	for(unsigned int i = 0; i < p.size(); i++){
 		p[i].draw();
