@@ -166,16 +166,16 @@ void Particle::update(){
 void Particle::draw(){
 
 	if( mode == PARTICLE_MODE_ATTRACT ){
-		ofSetColor(255, 153, 153);
+		ofSetColor(ofRandom(255), ofRandom(255), ofRandom(153));
 	}
 	else if( mode == PARTICLE_MODE_REPEL ){
-		ofSetColor(255, 255, 0);
+		ofSetColor(ofRandom(255), ofRandom(255), ofRandom(153));
 	}
 	else if( mode == PARTICLE_MODE_NOISE ){
-		ofSetColor(255,255,255);
+		ofSetColor(ofRandom(255), ofRandom(255), ofRandom(153));
 	}
 	else if( mode == PARTICLE_MODE_NEAREST_POINTS ){
-		ofSetColor(0,0,0);
+		ofSetColor(ofRandom(255), ofRandom(255), ofRandom(153));
 	}
 			
 	ofDrawCircle(pos.x, pos.y, scale * 4.0);
