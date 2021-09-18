@@ -14,6 +14,17 @@ void Particle::setMode(particleMode newMode){
 void Particle::setAttractPoints( vector <glm::vec3> * attract ){
 	attractPoints = attract;
 }
+//------------------------------------------------------------------
+void Particle::pauseP(double r){    // añadido
+	if (velocity == 0){
+		r = 1;
+		velocity = r;
+	}
+	else{
+		r = 0;
+		velocity = r;
+	}
+}
 
 //------------------------------------------------------------------
 void Particle::reset(){
@@ -139,7 +150,7 @@ void Particle::update(){
 	
 	// UPDATE OUR POSITION
 	
-	pos += vel; 
+	pos += vel * velocity;   //Se añadio variable velocity
 	
 	
 	// LIMIT THE PARTICLES TO STAY ON SCREEN 

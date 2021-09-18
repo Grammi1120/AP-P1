@@ -17,10 +17,12 @@ class Particle{
 		void setAttractPoints( vector <glm::vec3> * attract );
 		void attractToPoint(int, int);
 		void repelFromPoint(int, int);
+		void pauseP(double); //añadido
 		void reset();
 		void update();
-		void draw();		
-		
+		void draw();	
+	
+		double velocity = 1;  //añadido
 		glm::vec3 pos;
 		glm::vec3 vel;
 		glm::vec3 frc;

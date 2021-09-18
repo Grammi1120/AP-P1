@@ -64,7 +64,14 @@ void ofApp::draw(){
 	}
 
 	ofSetColor(230);	
-	ofDrawBitmapString(currentModeStr + "\n\nSpacebar to reset. \nKeys 1-4 to change mode.", 10, 20);
+	ofDrawBitmapString(currentModeStr + "\n\nPress 'a' to pause. \nSpacebar to reset. \nKeys 1-4 to change mode.", 10, 20);
+}
+void ofApp::pause(){  //añadido
+
+	for (unsigned int i = 0; i < p.size(); i++){
+		p[i].setMode(currentMode);
+		p[i].pauseP(0);
+	}
 }
 
 //--------------------------------------------------------------
@@ -85,11 +92,13 @@ void ofApp::keyPressed(int key){
 		currentMode = PARTICLE_MODE_NOISE;
 		currentModeStr = "4 - PARTICLE_MODE_NOISE: snow particle simulation"; 						
 		resetParticles();
-	}	
-		
+	}
+	if (key == 'a'){  //añadido
+		pause();
+	}			
 	if( key == ' ' ){
 		resetParticles();
-	}
+	}	
 }
 
 //--------------------------------------------------------------
