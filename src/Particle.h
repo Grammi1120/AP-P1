@@ -18,6 +18,7 @@ class Particle{
 		void attractToPoint(int, int);
 		void repelFromPoint(int, int);
 		void pauseP(double); //añadido
+		void quadE(); //añadido
 		void reset();
 		void update();
 		void draw();	

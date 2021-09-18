@@ -26,6 +26,9 @@ void Particle::pauseP(double r){    // añadido
 	}
 }
 
+void Particle::quadE(){
+	velocity=velocity*4;
+}
 //------------------------------------------------------------------
 void Particle::reset(){
 	//the unique val allows us to set properties slightly differently for each particle
@@ -49,6 +52,7 @@ void Particle::reset(){
 	}else{
 		drag  = ofRandom(0.95, 0.998);	
 	}
+	velocity=1;
 }
 
 void Particle::attractToPoint(int x, int y ){
