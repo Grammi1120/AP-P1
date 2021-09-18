@@ -29,6 +29,9 @@ void Particle::pauseP(double r){    // añadido
 void Particle::quadE(){
 	velocity=velocity*4;
 }
+void Particle::quartE(){
+	velocity=velocity*(.25);
+}
 //------------------------------------------------------------------
 void Particle::reset(){
 	//the unique val allows us to set properties slightly differently for each particle

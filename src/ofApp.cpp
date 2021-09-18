@@ -64,7 +64,7 @@ void ofApp::draw(){
 	}
 
 	ofSetColor(230);	
-	ofDrawBitmapString(currentModeStr + "\n\nPress 'f' to quadruple particle velocity. \nPress 'a' to pause. \nSpacebar to reset. \nKeys 1-4 to change mode.", 10, 20);
+	ofDrawBitmapString(currentModeStr + "\n\nPress 'f' to quadruple particle velocity.\n Press 's' to quart particle velocity. \nPress 'a' to pause. \nSpacebar to reset. \nKeys 1-4 to change mode.", 10, 20);
 }
 void ofApp::pause(){  //añadido
 
@@ -78,6 +78,12 @@ void ofApp::quad(){
 	for(unsigned int i=0; i<p.size(); i++){
 		p[i].setMode(currentMode);
 		p[i].quadE();
+	}
+}
+void ofApp::quart(){
+	for(unsigned int i=0; i<p.size(); i++){
+		p[i].setMode(currentMode);
+		p[i].quartE();
 	}
 }
 
@@ -108,6 +114,9 @@ void ofApp::keyPressed(int key){
 	}	
 	if(key=='f' || key=='F'){
 		quad();
+	}
+	if(key=='S' || key=='s'){
+		quart();
 	}
 }
 
