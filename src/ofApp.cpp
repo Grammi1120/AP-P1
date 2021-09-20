@@ -64,7 +64,7 @@ void ofApp::draw(){
 	}
 
 	ofSetColor(230);	
-	ofDrawBitmapString(currentModeStr + "\n\nPress 'f' to quadruple particle velocity.\n Press 's' to quart particle velocity. \nPress 'a' to pause. \nSpacebar to reset. \nKeys 1-4 to change mode.", 10, 20);
+	ofDrawBitmapString(currentModeStr + "\n\nPress 'i' to increase particle size.\nPress 'd' to decrease particle size. \nPress 'f' to quadruple particle velocity.\nPress 's' to quart particle velocity. \nPress 'a' to pause. \nSpacebar to reset. \nKeys 1-4 to change mode.", 10, 20);
 }
 void ofApp::pause(){  //añadido
 
@@ -92,6 +92,13 @@ void ofApp::IncreaseSize(){
 	for(unsigned int i=0; i<p.size(); i++){
 		p[i].setMode(currentMode);
 		p[i].IncSizeE();
+	}
+}
+//añadido
+void ofApp::DecreaseSize(){
+	for(unsigned int i=0; i<p.size(); i++){
+		p[i].setMode(currentMode);
+		p[i].DecSizeE();
 	}
 }
 
@@ -129,6 +136,9 @@ void ofApp::keyPressed(int key){
 	}
 	if(key=='i' || key=='I'){
 		IncreaseSize();
+	}
+	if(key=='d' || key=='D'){
+		DecreaseSize();
 	}
 }
 

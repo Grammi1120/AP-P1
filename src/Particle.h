@@ -21,6 +21,7 @@ class Particle{
 		void quadE(); //añadido
 		void quartE(); //añadido
 		void IncSizeE(); //añadido
+		void DecSizeE(); //añadido
 		void reset();
 		void update();
 		void draw();	

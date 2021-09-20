@@ -35,6 +35,10 @@ void Particle::quartE(){
 void Particle::IncSizeE(){
 	scale= 3*scale;
 }
+void Particle::DecSizeE(){
+	double x=(1.0/3.0);
+	scale=x*scale;
+}
 //------------------------------------------------------------------
 void Particle::reset(){
 	//the unique val allows us to set properties slightly differently for each particle
