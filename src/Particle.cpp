@@ -25,12 +25,15 @@ void Particle::pauseP(double r){    // añadido
 		velocity = r;
 	}
 }
-
+//añadido
 void Particle::quadE(){
 	velocity=velocity*4;
 }
 void Particle::quartE(){
 	velocity=velocity*(.25);
+}
+void Particle::IncSizeE(){
+	scale= 3*scale;
 }
 //------------------------------------------------------------------
 void Particle::reset(){

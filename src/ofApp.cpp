@@ -80,10 +80,18 @@ void ofApp::quad(){
 		p[i].quadE();
 	}
 }
+//añadido
 void ofApp::quart(){
 	for(unsigned int i=0; i<p.size(); i++){
 		p[i].setMode(currentMode);
 		p[i].quartE();
+	}
+}
+//añadido
+void ofApp::IncreaseSize(){
+	for(unsigned int i=0; i<p.size(); i++){
+		p[i].setMode(currentMode);
+		p[i].IncSizeE();
 	}
 }
 
@@ -112,11 +120,15 @@ void ofApp::keyPressed(int key){
 	if( key == ' ' ){
 		resetParticles();
 	}	
+	//añadido
 	if(key=='f' || key=='F'){
 		quad();
 	}
 	if(key=='S' || key=='s'){
 		quart();
+	}
+	if(key=='i' || key=='I'){
+		IncreaseSize();
 	}
 }
 
