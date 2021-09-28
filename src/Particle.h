@@ -9,15 +9,23 @@ enum particleMode{
 };
 
 class Particle{
+	private:
+	double velocity;
+	double previous;
 
 	public:
+	
 		Particle();
-		
+		void BaseSpeed(){ velocity=1; }
+		double getVel(){ return velocity; }
+		void setVel(double v){ velocity=v; }
+		void setPrevious(double r) { previous=r; }
+		double getPrevious(){ return previous; }
 		void setMode(particleMode newMode);	
 		void setAttractPoints( vector <glm::vec3> * attract );
 		void attractToPoint(int, int);
 		void repelFromPoint(int, int);
-		void pauseP(double); //añadido
+		void pauseP(); //añadido
 		void quadE(); //añadido
 		void quartE(); //añadido
 		void IncSizeE(); //añadido
@@ -26,7 +34,6 @@ class Particle{
 		void update();
 		void draw();	
 	
-		double velocity = 1;  //añadido
 		glm::vec3 pos;
 		glm::vec3 vel;
 		glm::vec3 frc;

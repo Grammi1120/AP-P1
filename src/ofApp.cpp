@@ -67,10 +67,9 @@ void ofApp::draw(){
 	ofDrawBitmapString(currentModeStr + "\n\nPress 'i' to increase particle size.\nPress 'd' to decrease particle size. \nPress 'f' to quadruple particle velocity.\nPress 's' to quart particle velocity. \nPress 'a' to pause. \nSpacebar to reset. \nKeys 1-4 to change mode.", 10, 20);
 }
 void ofApp::pause(){  //añadido
-
 	for (unsigned int i = 0; i < p.size(); i++){
 		p[i].setMode(currentMode);
-		p[i].pauseP(0);
+		p[i].pauseP();
 	}
 }
 //añadido
@@ -121,7 +120,7 @@ void ofApp::keyPressed(int key){
 		currentModeStr = "4 - PARTICLE_MODE_NOISE: snow particle simulation"; 						
 		resetParticles();
 	}
-	if (key == 'a'){  //añadido
+	if (key == 'a' || key=='A'){  //añadido
 		pause();
 	}			
 	if( key == ' ' ){

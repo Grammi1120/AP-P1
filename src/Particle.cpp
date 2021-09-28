@@ -15,22 +15,32 @@ void Particle::setAttractPoints( vector <glm::vec3> * attract ){
 	attractPoints = attract;
 }
 //------------------------------------------------------------------
-void Particle::pauseP(double r){    // añadido
-	if (velocity == 0){
-		r = 1;
-		velocity = r;
+void Particle::pauseP(){    // añadido
+	double PreviousVel=this->getVel();
+
+	if(PreviousVel!=0){
+		setPrevious(PreviousVel);
+	}
+	else{}
+	if(velocity!=0){
+		setVel(0);
 	}
 	else{
-		r = 0;
-		velocity = r;
+		double r=this->getPrevious();
+		setVel(r);
 	}
+
 }
+	
 //añadido
 void Particle::quadE(){
-	velocity=velocity*4;
+	double r=this->getVel();
+	setVel(r*4);
 }
+
 void Particle::quartE(){
-	velocity=velocity*(.25);
+	double r=this->getVel();
+	setVel(r*.25);
 }
 void Particle::IncSizeE(){
 	scale= 3*scale;
