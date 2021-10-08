@@ -64,7 +64,7 @@ void ofApp::draw(){
 	}
 
 	ofSetColor(230);	
-	ofDrawBitmapString(currentModeStr + "\n\nPress 'i' to increase particle size.\nPress 'd' to decrease particle size. \nPress 'f' to quadruple particle velocity.\nPress 's' to quart particle velocity. \nPress 'a' to pause. \nSpacebar to reset. \nKeys 1-4 to change mode.", 10, 20);
+	ofDrawBitmapString(currentModeStr + "\n\nPress 'i' to increase particle size.\nPress 'd' to decrease particle size. \nPress 'f' to quadruple particle velocity.\nPress 's' to quart particle velocity. \nPress 'a' to pause. \nSpacebar to reset. \nKeys 1-5 to change mode.", 10, 20);
 }
 void ofApp::pause(){  //añadido
 	for (unsigned int i = 0; i < p.size(); i++){
@@ -105,28 +105,32 @@ void ofApp::DecreaseSize(){
 void ofApp::keyPressed(int key){
 	if( key == '1'){
 		currentMode = PARTICLE_MODE_ATTRACT;
-		currentModeStr = "1 - PARTICLE_MODE_ATTRACT: attracts to mouse"; 		
+		currentModeStr = "1 - Particle Mode: Particles attract to mouse."; 		
 	}
 	if( key == '2'){
 		currentMode = PARTICLE_MODE_REPEL;
-		currentModeStr = "2 - PARTICLE_MODE_REPEL: repels from mouse"; 				
+		currentModeStr = "2 - Particle Mode: Particles repel from mouse."; 				
 	}
 	if( key == '3'){
 		currentMode = PARTICLE_MODE_NEAREST_POINTS;
-		currentModeStr = "3 - PARTICLE_MODE_NEAREST_POINTS:"; 						
+		currentModeStr = "3 - Particle Mode: Particles attract to nearest point."; 						
 	}
 	if( key == '4'){
 		currentMode = PARTICLE_MODE_NOISE;
-		currentModeStr = "4 - PARTICLE_MODE_NOISE: snow particle simulation"; 						
+		currentModeStr = "4 - Particle Mode: Particles make a snow simulation."; 						
 		resetParticles();
 	}
-	if (key == 'a' || key=='A'){  //añadido
-		pause();
-	}			
 	if( key == ' ' ){
 		resetParticles();
 	}	
 	//añadido
+		if( key == '5'){
+		currentMode = PARTICLE_MODE_DANCE;
+		currentModeStr = "5 - Particle Mode: Particles moves randomly."; 						
+	}
+	if (key == 'a' || key=='A'){  //añadido
+		pause();
+	}	
 	if(key=='f' || key=='F'){
 		quad();
 	}

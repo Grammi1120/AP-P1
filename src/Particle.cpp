@@ -212,6 +212,9 @@ void Particle::draw(){
 	else if( mode == PARTICLE_MODE_NEAREST_POINTS ){
 		ofSetColor(ofRandom(255), ofRandom(255), ofRandom(153));
 	}
+		else if( mode == PARTICLE_MODE_DANCE ){
+		ofSetColor(ofRandom(255), ofRandom(255), ofRandom(153));
+	}
 			
 	ofDrawCircle(pos.x, pos.y, scale * 4.0);
 }
