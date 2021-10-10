@@ -43,6 +43,19 @@ void ofApp::update(){
 		attractPointsWithMovement[i].x = attractPoints[i].x + ofSignedNoise(i * 10, ofGetElapsedTimef() * 0.7) * 12.0;
 		attractPointsWithMovement[i].y = attractPoints[i].y + ofSignedNoise(i * -10, ofGetElapsedTimef() * 0.7) * 12.0;
 	}	
+	if(replay==true){
+		if(contador==0){
+			reverse(keyPress.begin(),keyPress.end());
+			iter=keyPress.end();
+			keyPressed(*iter);
+			keyPress.pop_back();
+			contador=75;
+			reverse(keyPress.begin(),keyPress.end());
+		}
+		else{
+			contador--;
+		}
+	}
 }
 
 //--------------------------------------------------------------
@@ -64,7 +77,7 @@ void ofApp::draw(){
 	}
 
 	ofSetColor(230);	
-	ofDrawBitmapString(currentModeStr + "\n\nPress 'i' to increase particle size.\nPress 'd' to decrease particle size. \nPress 'f' to quadruple particle velocity.\nPress 's' to quart particle velocity. \nPress 'a' to pause. \nSpacebar to reset. \nKeys 1-5 to change mode.", 10, 20);
+	ofDrawBitmapString(currentModeStr + "\n\nPress 'i' to increase particle size.\nPress 'd' to decrease particle size. \nPress 'f' to quadruple particle velocity.\nPress 's' to quart particle velocity. \nPress 'a' to pause.\nPress 'r' to record.\nPress 'p' to replay.\nSpacebar to reset. \nKeys 1-5 to change mode.", 10, 20);
 }
 void ofApp::pause(){  //añadido
 	for (unsigned int i = 0; i < p.size(); i++){
@@ -103,6 +116,16 @@ void ofApp::DecreaseSize(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+	if(replay==true){
+		if(keyPress.size()==0 || key=='c' || key=='C'){
+			resetParticles();
+			replay=false;
+		}
+		else if(key !=* iter){
+		return;
+		}
+		key =* iter;
+	}
 	if( key == '1'){
 		currentMode = PARTICLE_MODE_ATTRACT;
 		currentModeStr = "1 - Particle Mode: Particles attract to mouse."; 		
@@ -126,7 +149,7 @@ void ofApp::keyPressed(int key){
 	//añadido
 		if( key == '5'){
 		currentMode = PARTICLE_MODE_DANCE;
-		currentModeStr = "5 - Particle Mode: Particles moves randomly."; 						
+		currentModeStr = "5 - Particle Mode: Particles move randomly."; 						
 	}
 	if (key == 'a' || key=='A'){  //añadido
 		pause();
@@ -142,6 +165,17 @@ void ofApp::keyPressed(int key){
 	}
 	if(key=='d' || key=='D'){
 		DecreaseSize();
+	}
+	if(key=='r' || key=='R'){
+		currentModeStr = "R - RECORD: Currently Recording";
+		record=!record;
+	}
+	if(record==true){
+		keyPress.push_back(key);
+	}
+	if(key=='p' || key=='P'){
+		replay=true;
+		currentModeStr="P- REPLAY: Playing Recording";
 	}
 }
 

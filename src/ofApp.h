@@ -30,6 +30,15 @@ class ofApp : public ofBaseApp{
 		particleMode currentMode;
 		string currentModeStr; 
 
+		bool record=false; //añadido
+		bool replay=false; //añadido
+
+		int contador=100; //añadido
+
+		vector<int> keyPress; //añadido
+
+		vector<int>::iterator iter; //añadido
+
 		vector <Particle> p;
 		vector <glm::vec3> attractPoints;
 		vector <glm::vec3> attractPointsWithMovement;
